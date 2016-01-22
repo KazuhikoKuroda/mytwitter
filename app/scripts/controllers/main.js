@@ -29,7 +29,7 @@ function MainController($scope, $q, twitterService) {
 	};
 
 	if (twitterService.isReady()) {
-//		$scope.refresh();
+		$scope.refresh();
 	}
 }
 
