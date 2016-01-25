@@ -49,6 +49,19 @@ function twitterService($q) {
 					deferred.reject(err);
 				});
 			return deferred.promise;
+		},
+		getUserTimeline: function() {
+			var deferred = $q.defer(),
+				url = '/1.1/statuses/user_timeline.json';
+
+			authResult.get(url)
+				.done(function(result) {
+					deferred.resolve(result);
+				})
+				.fail(function(err) {
+					deferred.reject(err);
+				});
+			return deferred.promise;
 		}
 	};
 }
