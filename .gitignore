@@ -38,3 +38,6 @@ bower_components
 
 # distribution directory
 dist
+
+# tmp directory
+.tmp
