@@ -1,16 +1,17 @@
 'use strict';
 
-function MainController($scope, $q, twitterService) {
+function MainController($scope, twitterService) {
 	$scope.tweets = [];
 
 	twitterService.initialize();
 
 	$scope.refresh = function() {
-		twitterService.getLatestTweets().then(function(result) {
-			$scope.tweets = $scope.tweets.concat(result);
-		}, function() {
-			// error
-		});
+		twitterService.getLatestTweets()
+			.then(function(result) {
+				$scope.tweets = $scope.tweets.concat(result);
+			}, function() {
+				// error
+			});
 	};
 
 	$scope.connect = function() {

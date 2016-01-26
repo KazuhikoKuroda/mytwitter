@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="row" ng-show="showProfile">
+		<div class="col-md-3 text-center">
+			<img ng-src="{{profile.avatar| replace:'_normal':'_200x200'}}" class="img-rounded" style="width:100%; max-width:200px;"/>
+			<div>
+				<small>{{profile.alias}}</small>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<dl class="dl-horizontal">
+				<dt>Name</dt>
+				<dd>{{profile.name}}</dd>
+				<dt>bio</dt>
+				<dd>{{profile.bio}}</dd>
+				<dt>location</dt>
+				<dd>{{profile.location}}</dd>
+				<dt>url</dt>
+				<dd><a href="{{profile.url}}">{{profile.url}}</a></dd>
+				<dt>website</dt>
+				<dd><a href="{{profile.website}}">{{profile.website}}</a></dd>
+			</dl>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="media well" ng-repeat="tweet in tweets">
+				<div class="col-md-2">
+					<img ng-src="{{tweet.user.profile_image_url}}" class="img-circle">
+				</div>
+				<div class="col-md-10">
+					<small>{{tweet.user.name}}</small>
+					<br> <span ng-bind-html="tweet.text"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
