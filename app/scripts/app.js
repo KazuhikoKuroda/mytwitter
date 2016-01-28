@@ -35,6 +35,11 @@ angular
 				controller: 'ProfileCtrl',
 				controllerAs: 'profile'
 			})
+.when('/tweet', {
+  templateUrl: 'views/tweet.html',
+  controller: 'TweetCtrl',
+  controllerAs: 'tweet'
+})
 			.otherwise({
 				redirectTo: '/'
 			});
