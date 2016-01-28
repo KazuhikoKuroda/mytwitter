@@ -1,24 +1,25 @@
 'use strict';
 
-function ProfileControl($scope, twitterService) {
-	$scope.profile = {};
-	$scope.tweets = [];
-	$scope.showProfile = false;
+function ProfileControl(twitterService) {
+	var vm = this;
+	vm.info = {};
+	vm.tweets = [];
+	vm.showProfile = false;
 
 	twitterService.initialize();
 
 	if (twitterService.isReady()) {
 		twitterService.getMe()
 			.then(function(result) {
-				$scope.profile = result;
-				$scope.showProfile = true;
+				vm.info = result;
+				vm.showProfile = true;
 			}, function() {
 				// error
 			});
 
 		twitterService.getUserTimeline()
 			.then(function(result) {
-				$scope.tweets = $scope.tweets.concat(result);
+				vm.tweets = vm.tweets.concat(result);
 			}, function() {
 				// error
 			});
