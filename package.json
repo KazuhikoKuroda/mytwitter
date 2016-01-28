@@ -3,6 +3,8 @@
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
+    "generator-angular": "^0.15.1",
+    "generator-karma": "^1.0.1",
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.7",
     "grunt-concurrent": "^1.0.0",
