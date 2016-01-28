@@ -7,11 +7,12 @@ function MainController(twitterService) {
 	twitterService.initialize();
 
 	vm.refresh = function() {
-		twitterService.getLatestTweets().then(function(result) {
-			vm.tweets = vm.tweets.concat(result);
-		}, function() {
-			// error
-		});
+		twitterService.getLatestTweets()
+			.then(function(result) {
+				vm.tweets = vm.tweets.concat(result);
+			}, function() {
+				// error
+			});
 	};
 
 	vm.connect = function() {
