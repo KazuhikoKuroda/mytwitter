@@ -1,35 +1,36 @@
 'use strict';
 
-function MainController($scope, $q, twitterService) {
-	$scope.tweets = [];
+function MainController(twitterService) {
+	var vm = this;
 
+	vm.tweets = [];
 	twitterService.initialize();
 
-	$scope.refresh = function() {
+	vm.refresh = function() {
 		twitterService.getLatestTweets().then(function(result) {
-			$scope.tweets = $scope.tweets.concat(result);
+			vm.tweets = vm.tweets.concat(result);
 		}, function() {
 			// error
 		});
 	};
 
-	$scope.connect = function() {
+	vm.connect = function() {
 		twitterService.connectTwitter().then(function() {
 			if (twitterService.isReady()) {
-				$scope.refresh();
+				vm.refresh();
 			} else {
 				console.log('unable to connect twitter');
 			}
 		});
 	};
 
-	$scope.signOut = function() {
+	vm.signOut = function() {
 		twitterService.clearCache();
-		$scope.tweets = [];
+		vm.tweets = [];
 	};
 
 	if (twitterService.isReady()) {
-		$scope.refresh();
+		vm.refresh();
 	}
 }
 
