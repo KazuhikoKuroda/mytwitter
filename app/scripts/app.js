@@ -17,7 +17,8 @@ angular
 		'ngSanitize',
 		'ngTouch',
 		'mytwitterApp.services',
-		'ngMessages'
+		'ngMessages',
+		'ui.bootstrap'
 	])
 	.config(function($routeProvider) {
 		$routeProvider
@@ -47,10 +48,19 @@ angular
 	})
 	.filter('replace', function() {
 		return function(input, pattern, replacement) {
-			if ((typeof input) === 'string'){
+			if ((typeof input) === 'string') {
 				return input.replace(pattern, replacement, 'g');
 			} else {
 				return input;
 			}
 		};
+	})
+	.filter('nl2br', function($sce) {
+		return function(input) {
+			if ((typeof input) === 'string') {
+				return $sce.trustAsHtml(input.replace(/(\r\n|\n\r|\r|\n)/g, '<br>'));
+			} else {
+				return input;
+			}
+		}
 	});

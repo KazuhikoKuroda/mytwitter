@@ -1,23 +1,34 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12" ng-show="tweet.showTweet">
-			<form name="tweetForm" role="form" class="well" ng-submit="tweet.submit()" novalidate>
+			<form class="well" name="tweetForm" ng-submit="tweet.submit()" novalidate role="form">
 				<div class="form-group">
 					<label for="tweet">Tweet Text</label>
-					<textarea
-						class="form-control"
-						name="tweet"
-						placeholder="tweeeeeeeeeeeeeeeeeeet"
-						ng-model="tweet.inputText"
-						ng-maxlength="140"
-						ng-required="true" />
+					<textarea class="form-control" name="tweet" ng-maxlength="140" ng-model="tweet.inputText" ng-required="true" placeholder="tweeeeeeeeeeeeeeeeeeet"/>
 				</div>
-				<div ng-messages="tweetForm.tweet.$error" ng-if="tweetForm.tweet.$dirty" role="alert">
+				<div ng-if="tweetForm.tweet.$dirty" ng-messages="tweetForm.tweet.$error" role="alert">
 					<div ng-message="required">入力は必須です。</div>
 					<div ng-message="maxlength">入力は１４０文字までです。</div>
 				</div>
-				<button type="submit" value="Save" class="btn btn-primary" ng-disabled="tweetForm.$invalid">つぶやく</button>
+				<button class="btn btn-primary" ng-disabled="tweetForm.$invalid" type="submit" value="Save">つぶやく</button>
 			</form>
 		</div>
 	</div>
+
+	<script id="myModalContent.html" type="text/ng-template">
+		<div class="modal-header">
+			<h3 class="modal-title">結果発表</h3>
+		</div>
+		<div class="modal-body">
+			<dl class="dl-horizontal">
+				<dt>日時</dt><dd>{{modal.items.created_date | date:"yyyy年MM月dd日 HH:mm:ss"}}</dd>
+				<dt>投稿者</dt><dd>{{modal.items.user.name}} <a href="">@{{modal.items.user.screen_name}}</dd></a>
+				<dt>Tweet</dt><dd ng-bind-html="modal.items.text | nl2br"></dd>
+			</dl>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="ok()" type="button">OK</button>
+		</div>
+	</script>
+
 </div>
