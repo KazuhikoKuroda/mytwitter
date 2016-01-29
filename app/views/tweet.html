@@ -4,7 +4,7 @@
 			<form class="well" name="tweetForm" ng-submit="tweet.submit()" novalidate role="form">
 				<div class="form-group">
 					<label for="tweet">Tweet Text</label>
-					<textarea class="form-control" name="tweet" ng-maxlength="140" ng-model="tweet.inputText" ng-required="true" placeholder="tweeeeeeeeeeeeeeeeeeet"/>
+					<textarea class="form-control" name="tweet" ng-maxlength="140" ng-model="tweet.inputText" ng-required="true" placeholder="tweeeeeeeeeeeeeeeeeeet"></textarea>
 				</div>
 				<div ng-if="tweetForm.tweet.$dirty" ng-messages="tweetForm.tweet.$error" role="alert">
 					<div ng-message="required">入力は必須です。</div>
