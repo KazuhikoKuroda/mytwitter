@@ -81,3 +81,11 @@ body {
     border-bottom: 0;
   }
 }
+
+
+form .ng-invalid.ng-dirty {
+  background-color: lightpink;
+}
+form .ng-valid.ng-dirty {
+  background-color: lightcyan;
+}

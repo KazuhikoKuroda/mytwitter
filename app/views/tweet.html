@@ -1,1 +1,23 @@
-<p>This is the tweet view.</p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12" ng-show="tweet.showTweet">
+			<form name="tweetForm" role="form" class="well" ng-submit="tweet.submit()" novalidate>
+				<div class="form-group">
+					<label for="tweet">Tweet Text</label>
+					<textarea
+						class="form-control"
+						name="tweet"
+						placeholder="tweeeeeeeeeeeeeeeeeeet"
+						ng-model="tweet.inputText"
+						ng-maxlength="140"
+						ng-required="true" />
+				</div>
+				<div ng-messages="tweetForm.tweet.$error" ng-if="tweetForm.tweet.$dirty" role="alert">
+					<div ng-message="required">入力は必須です。</div>
+					<div ng-message="maxlength">入力は１４０文字までです。</div>
+				</div>
+				<button type="submit" value="Save" class="btn btn-primary" ng-disabled="tweetForm.$invalid">つぶやく</button>
+			</form>
+		</div>
+	</div>
+</div>

@@ -16,7 +16,8 @@ angular
 		'ngRoute',
 		'ngSanitize',
 		'ngTouch',
-		'mytwitterApp.services'
+		'mytwitterApp.services',
+		'ngMessages'
 	])
 	.config(function($routeProvider) {
 		$routeProvider
@@ -35,11 +36,11 @@ angular
 				controller: 'ProfileCtrl',
 				controllerAs: 'profile'
 			})
-.when('/tweet', {
-  templateUrl: 'views/tweet.html',
-  controller: 'TweetCtrl',
-  controllerAs: 'tweet'
-})
+			.when('/tweet', {
+				templateUrl: 'views/tweet.html',
+				controller: 'TweetCtrl',
+				controllerAs: 'tweet'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});

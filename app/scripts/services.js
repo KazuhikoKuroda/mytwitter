@@ -62,6 +62,23 @@ function twitterService($q) {
 					deferred.reject(err);
 				});
 			return deferred.promise;
+		},
+		postTweet: function(message) {
+			var deferred = $q.defer(),
+				url = '/1.1/statuses/update.json',
+				params = {
+					data: {
+						status: message
+					}
+				};
+
+			authResult.post(url, params)
+				.done(function(result) {
+					deferred.resolve(result);
+				}).fail(function(err) {
+					deferred.reject(err);
+				});
+			return deferred.promise;
 		}
 	};
 }
