@@ -5,10 +5,10 @@
 				<div class="form-group">
 					<label for="tweet">Tweet Text</label>
 					<textarea class="form-control" name="tweet" ng-maxlength="140" ng-model="tweet.inputText" ng-required="true" placeholder="tweeeeeeeeeeeeeeeeeeet"></textarea>
-				</div>
-				<div ng-if="tweetForm.tweet.$dirty" ng-messages="tweetForm.tweet.$error" role="alert">
-					<div ng-message="required">入力は必須です。</div>
-					<div ng-message="maxlength">入力は１４０文字までです。</div>
+					<div ng-if="tweetForm.tweet.$dirty" ng-messages="tweetForm.tweet.$error" role="alert">
+						<div ng-message="required">入力は必須です。</div>
+						<div ng-message="maxlength">入力は１４０文字までです。</div>
+					</div>
 				</div>
 				<button class="btn btn-primary" ng-disabled="tweetForm.$invalid" type="submit" value="Save">つぶやく</button>
 			</form>
