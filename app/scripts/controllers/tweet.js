@@ -15,7 +15,7 @@ function TweetController($route, $uibModal, twitterService) {
 			.then(function(result) {
 				var modalInstance = $uibModal.open({
 					animation: true,
-					templateUrl: 'myModalContent.html',
+					templateUrl: 'views/modal.html',
 					controller: 'ModalCtrl',
 					controllerAs: 'modal',
 					size: 'lg',
@@ -44,20 +44,3 @@ function TweetController($route, $uibModal, twitterService) {
 angular.module('mytwitterApp')
 	.controller('TweetCtrl', TweetController);
 
-angular.module('mytwitterApp')
-	.controller('ModalCtrl', function($scope, $uibModalInstance, items) {
-		var vm = this;
-
-		vm.items = items;
-		if (vm.items.created_at) {
-			vm.items.created_date = Date.parse(vm.items.created_at);
-		}
-
-		$scope.ok = function() {
-			$uibModalInstance.close('OK!!!');
-		};
-
-		$scope.cancel = function() {
-			$uibModalInstance.dismiss('cancel');
-		};
-	});

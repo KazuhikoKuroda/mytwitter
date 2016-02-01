@@ -1,0 +1,13 @@
+<div class="modal-header">
+	<h3 class="modal-title">以下の内容で投稿しました。</h3>
+</div>
+<div class="modal-body">
+	<dl class="dl-horizontal">
+		<dt>日時</dt><dd>{{modal.items.created_date | date:"yyyy年MM月dd日 HH:mm:ss"}}</dd>
+		<dt>投稿者</dt><dd>{{modal.items.user.name}} <a href="{{modal.items.user.url}}">@{{modal.items.user.screen_name}}</dd></a>
+		<dt>Tweet</dt><dd ng-bind-html="modal.items.text | nl2br"></dd>
+	</dl>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="modal.ok()" type="button">OK</button>
+</div>
